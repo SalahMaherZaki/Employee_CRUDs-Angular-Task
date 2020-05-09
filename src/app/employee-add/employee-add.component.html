@@ -1,0 +1,23 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<div class="container form-horizontal col-6 offset-3 mb-3 bg-info rounded p-2">
+    <div class="form-group">
+        <label class="control-label h3">Id</label>
+        <div class="">
+            <input class="form-control" type="text" [(ngModel)]="emp.id">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label h3">Name</label>
+        <div class="">
+            <input class="form-control" type="text" [(ngModel)]="emp.name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label h3">Salary</label>
+        <div class="">
+            <input type="text" class="form-control" [(ngModel)]="emp.salary">
+        </div>
+    </div>
+    <button (click)="onAdd()" class="btn btn-warning col-2 offset-5">Save</button>
+</div>

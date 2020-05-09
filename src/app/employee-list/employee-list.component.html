@@ -1,0 +1,32 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<div class="container mt-3">
+    <button class="btn btn-success btn-lg mb-2 col-12" (click)="showAdd()">Add Employee</button>
+    <table class="table rounded table-dark table-striped">
+        <thead>
+            <tr class="text-center">
+                <th>Serial</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th colspan="3">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor="let emp of emps;let i=index">
+                <td>{{i}}</td>
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.salary|currency}}</td>
+                <td>
+                    <button class="btn btn-success mr-3" (click)="showDetails(i)">Details</button>
+                    <button class="btn btn-info mr-3" (click)="showUpdate(i)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteEmp(i)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-employee-add (employeeAdded)="addEmployee($event)" *ngIf="compToShow==2"></app-employee-add>
+    <app-employee-update [myUpdatedEmployee]="empDetailsObj" (employeeUpdated)="updateEmp($event)" *ngIf="compToShow==3"></app-employee-update>
+    <app-employee-details (detailsClosed)="hideDetails()" *ngIf="compToShow==1" [emp]="empDetailsObj">
+    </app-employee-details>
+</div>
